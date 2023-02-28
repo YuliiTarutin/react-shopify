@@ -15,6 +15,7 @@
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'component-product-form.css' | asset_url | stylesheet_tag }}
 
   {%- style -%}
     .section-{{ section.id }}-padding {
@@ -60,20 +61,6 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
-  <div>
-    <div id="product-page-react-entrypoint" class="product-form-react"></div>
-    <div id="cart__drawer_items"></div>
-    <script
-            data-section-data
-            type="application/json"
-    >
-    {
-      "product": {{ product | json }},
-      "sectionId": {{ section.id | json }}
-    }
-  </script>
-  </div>
-
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
 
@@ -81,11 +68,25 @@
       {% render 'product-media-gallery', variant_images: variant_images %}
     </div>
     <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}">
+      <div>
+        <div id="product-page-react-entrypoint" class="product-form-react"></div>
+        <div id="cart__drawer_items"></div>
+        <script
+                data-section-data
+                type="application/json"
+        >
+          {
+            "product": {{ product | json }},
+            "sectionId": {{ section.id | json }}
+          }
+        </script>
+      </div>
       <product-info
         id="ProductInfo-{{ section.id }}"
         data-section="{{ section.id }}"
         data-url="{{ product.url }}"
         class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+        style="display:none;"
       >
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 

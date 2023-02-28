@@ -7,10 +7,18 @@ import { addItem } from '@shopify/theme-cart';
 
 
 function RadioGroup({ options, selected, onChange }) {
+  const handleLabelClick = (event) => {
+    const label = event.currentTarget;
+    label.classList.add("active");
+  };
+
   return (
     <div className="radio-group">
       {options.map((option) => (
-        <label key={option.value}>
+        <label key={option.value}
+               onClick={handleLabelClick}
+               className={option.value === selected ? "active" : ""}
+        >
           <input
             type="radio"
             value={option.value}
@@ -88,7 +96,7 @@ function ProductForm({ product }) {
   return (
     <div>
       <div className="product-form-react">
-        <div className="product-form-react__tile">
+        <div className="product-form-react__title">
           <h1>{product.title}</h1>
         </div>
         <div className="product-form-react__price">
@@ -102,6 +110,7 @@ function ProductForm({ product }) {
           />
         </div>
         <div className="product-form-react__add-to-qty">
+          <p>Quantity</p>
           <input onChange={handleQtyChange}
                  defaultValue="1"
                  className="" type="number" name="qty" id="qty"

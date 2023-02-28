@@ -1,0 +1,79 @@
+.product-form-react {
+
+}
+
+.product-form-react .product-form-react__title h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-form-react .product-form-react__price {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.product-form-react .product-form-react__variations h3, .product-form-react__add-to-qty p {
+    font-size: 1.3rem;
+    letter-spacing: .04rem;
+    margin-bottom: 5px;
+}
+
+.product-form-react .product-form-react__variations label {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    margin-right: 20px;
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.product-form-react .product-form-react__variations label.active {
+    border-color: #000000;
+}
+.product-form-react .product-form-react__variations label:hover {
+    border-color: #000000;
+}
+
+.product-form-react .product-form-react__variations label input[type="radio"] {
+    display: none;
+}
+.product-form-react .product-form-react__variations input:checked + label {
+    background-color: red;
+}
+
+.product-form-react .product-form-react__variations {
+    margin-bottom: 30px;
+}
+
+.product-form-react__add-to-qty input {
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid #ccc;
+}
+.product-form-react__add-to-qty {
+    margin-bottom: 20px;
+}
+.product-form-react__add-to-cart {
+    margin-bottom: 40px;
+}
+.product-form-react__add-to-cart button {
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    display: block;
+    border-radius: 0;
+    border: 1px solid #000000;
+    background-color: transparent;
+    transition: 0.3s;
+}
+
+.product-form-react__add-to-cart button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
